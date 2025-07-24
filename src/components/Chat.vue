@@ -80,8 +80,8 @@ onMounted(() => {
   const firestore = getFirestore(firebaseApp)
   const messageRef = collection(firestore, 'message')
   const q = query(messageRef, orderBy('createdAt'), limit(25))
-  onSnapshot(q, (querySnapshot) => {
-    messages.value = querySnapshot.docs.map(doc => ({
+  onSnapshot(q, (querySnapshot: any) => {
+    messages.value = querySnapshot.docs.map((doc: any) => ({
       id: doc.id,
       ...doc.data()
     }))
